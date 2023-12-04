@@ -8,7 +8,7 @@
   - 以下是實作結果
   - 結果討論
     - Original Image
-      - 原始的彩色照片，而後續為了方便操作，在讀入數據時就將照片轉為黑白進行儲存。                    
+      - 原始的彩色照片，而後續為了方便操作，在讀入數據時就將照片轉為黑白進行儲存。
     - Dark Image (alpha=0.8, beta=-50)
       - 在處理暗調的圖片時，將beta設為-50，代表對像素值進行負偏移；alpha設為0.8。
     - Bright Image (alpha=1.1, beta=50)
@@ -25,7 +25,6 @@
       - 而後續會利用公式： $O=I^\gamma$
         - 而公式中的 $I$ 是原始圖片的像素值， $O$是增強後的圖片像素值， $\gamma$ 是一個參數，用於控制曲線的形狀。
     - 以下是實作結果
-                
     - 結果討論
       - 當gamma大於1並且逐漸增加時，圖片的細節會越來越明顯，並且亮度會降低，可能需要搭配可以調整亮度的函式使用，便能形成高對比度並細節清楚的照片。
       - 當gamma小於1時，圖片的細節明顯降低，並且亮度有些微的提升。在使用像bright image亮度本身就較高的照片時，可能會需要調整亮度，才不會導致過曝的情況發生。
@@ -36,19 +35,17 @@
       - apply_intensity_mapping(img, map_func)，此函數接受一個名為img，為待處理的圖片，以及map_func，為先前計算出的強度映射函數。
         - 此函式會遍歷每個像素，並將該像素的強度值映射到新的值，最後返回應用了強度映射的新圖片
     - 以下是實作結果
-                
     - 結果討論
       - 左側為每張照片的原始圖像以及直方圖，右邊則是經過處理後的圖像，可以感受到每張圖片都被增強了細節，並且直方圖也比先前更加的平均，但仍然有改善的空間。
     - power curves與Equalization的比較
       - 兩種方法皆可以很好的進行細節的增強，但在觀察圖片以及直方圖後，發現Equalization的直方圖更加的平均，並且整張圖片的表現也更和諧。
-            
 ## Q2：Most area of the noon is nearly dark because there is no light there. Enhance the selected image by using equalization and specification, compare the results and give a discussion.
 - 函式設計
   - 在實作equalization 的部分，我使用了與Q1(b)一樣的函式：hist_equalization(img)以及apply_intensity_mapping(img, map_func)。
   - 在實作specification的部分
     - 首先，先使用cv2.createCLAHE()創建CLAHE。並且設置ClipLimit的值限制局部區域中像素值的峰值，以避免過度增強對比度，tileGridSize是指圖片被分成多少個局部區域進行均衡化處理。
     - 接下來使用apply(img, ref)將CLAHE應用到輸入圖片中，img為輸入圖像，而ref是參考圖像均衡化後的直方圖。
-- 以下是實作結果        
+- 以下是實作結果
 - 結果討論
   - Original Image
     - 在尋找圖片時花費了一點時間，網路上有些圖片會將偏黑色的部分去除，只留下白色的弦月。而這樣的圖片不管如何調整，都沒辦法顯現出完整的月亮，故最後只能找了一張較為明顯的照片進行調整。
