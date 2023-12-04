@@ -1,5 +1,5 @@
-##Q1：Please prepare four images: (a) dark; (b) bright; (c) low contrast; (d) high contrast, like the following images. The examples are shown as follows.<br>
-*(a) Describe how you generate your four images. Show the images together with the corresponding histograms.<br>
+## Q1：Please prepare four images: (a) dark; (b) bright; (c) low contrast; (d) high contrast, like the following images. The examples are shown as follows.<br>
+* (a) Describe how you generate your four images. Show the images together with the corresponding histograms.<br>
         - 像素值的線性變換公式：$g(x)=\alpha f(x)+\beta$
             - 其中 $f(x)$ 是原始圖片的像素值， $g(x)$ 是變換後的圖片像素值， $\alpha$和 $\beta$是線性變換的參數。 $\alpha$是代表對像素值進行縮放的比例因子， $\beta$ 是代表對像素值進行平移的量。
             - 當 $\alpha<1$時，圖片的對比度會降低，當 $\alpha>1$時，圖片的對比度會增加
@@ -23,7 +23,7 @@
                 - 在處理低對比的圖片時，先將alpha設為0.5，對像素值進行縮小，此時雖然完成了低對比，但圖片會太暗無法清楚辨識，故又將beta提高到50。
             - High contrast Image (alpha=1.7, beta=-15)
                 - 在處理高對比的圖片時，先將alpha值設為1.7，對像素值進行放大，此時雖然完成了高對比，但圖片會太亮而有點過曝，以及直方圖數值無法清楚辨識，故降低了beta到-15。
-*(b) Find the transfer curves to enhance these images, show the results and histograms as well. Please consider using contrast stretching methods such as power curves, as well as equalization techniques. Additionally, please provide a comparison and discussion of the different methods used.
+* (b) Find the transfer curves to enhance these images, show the results and histograms as well. Please consider using contrast stretching methods such as power curves, as well as equalization techniques. Additionally, please provide a comparison and discussion of the different methods used.
         - Power curves
             - 函式設計
                 - power_low(image,gamma)，此函式接受兩個參數：image是待處理的圖片，gamma是用來調整圖片的參數。
@@ -69,17 +69,17 @@
             
             兩種方法皆可以很好的進行細節的增強，但在觀察圖片以及直方圖後，發現Equalization的直方圖更加的平均，並且整張圖片的表現也更和諧。
             
-- Q2：Most area of the noon is nearly dark because there is no light there. Enhance the selected image by using equalization and specification, compare the results and give a discussion.
-    - 函式設計
+## Q2：Most area of the noon is nearly dark because there is no light there. Enhance the selected image by using equalization and specification, compare the results and give a discussion.
+* 函式設計
         - 在實作equalization 的部分，我使用了與Q1(b)一樣的函式：hist_equalization(img)以及apply_intensity_mapping(img, map_func)。
         - 在實作specification的部分
             - 首先，先使用cv2.createCLAHE()創建CLAHE。並且設置ClipLimit的值限制局部區域中像素值的峰值，以避免過度增強對比度，tileGridSize是指圖片被分成多少個局部區域進行均衡化處理。
             - 接下來使用apply(img, ref)將CLAHE應用到輸入圖片中，img為輸入圖像，而ref是參考圖像均衡化後的直方圖。
-    - 以下是實作結果
+* 以下是實作結果
         
         ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a0efbe8f-1d86-4805-b00a-b46b520372ff/Untitled.png)
         
-    - 結果討論
+* 結果討論
         - Original Image
             - 在尋找圖片時花費了一點時間，網路上有些圖片會將偏黑色的部分去除，只留下白色的弦月。而這樣的圖片不管如何調整，都沒辦法顯現出完整的月亮，故最後只能找了一張較為明顯的照片進行調整。
         - Equalization
