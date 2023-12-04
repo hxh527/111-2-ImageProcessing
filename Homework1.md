@@ -1,9 +1,9 @@
 ## Q1：Please prepare four images: (a) dark; (b) bright; (c) low contrast; (d) high contrast, like the following images. The examples are shown as follows.
 - (a) Describe how you generate your four images. Show the images together with the corresponding histograms.
-  - 像素值的線性變換公式：$g(x)=\alpha f(x)+\beta$
-  - 其中 $f(x)$ 是原始圖片的像素值， $g(x)$ 是變換後的圖片像素值， $\alpha$和 $\beta$是線性變換的參數。 $\alpha$是代表對像素值進行縮放的比例因子， $\beta$ 是代表對像素值進行平移的量。
-  - 當 $\alpha<1$時，圖片的對比度會降低，當 $\alpha>1$時，圖片的對比度會增加
-  - 當$\beta<0$時，圖片會變暗，當$\beta>0$時，圖片會變亮。
+  - 像素值的線性變換公式： $g(x)=\alpha f(x)+\beta$ 
+  - 其中 $f(x)$ 是原始圖片的像素值， $g(x)$ 是變換後的圖片像素值， $\alpha$ 和 $\beta$ 是線性變換的參數。 $\alpha$ 是代表對像素值進行縮放的比例因子， $\beta$ 是代表對像素值進行平移的量。
+  - 當 $\alpha<1$ 時，圖片的對比度會降低，當 $\alpha>1$ 時，圖片的對比度會增加
+  - 當 $\beta<0$ 時，圖片會變暗，當 $\beta>0$ 時，圖片會變亮。
   - 我設計了一個為convert_scale_abs(img, alpha, beta)的函式，這個函式接受三個參數：img是待處理的圖片，alpha是線性變換的斜率，beta是線性變換的截距。
   - 以下是實作結果
   - 結果討論
@@ -23,7 +23,7 @@
       - power_low(image,gamma)，此函式接受兩個參數：image是待處理的圖片，gamma是用來調整圖片的參數。
       - 首先，會先將黑白的圖片進行歸一化處理，使所有像素值都介於0和1之間。
       - 而後續會利用公式： $O=I^\gamma$
-        - 而公式中的 $I$是原始圖片的像素值， $O$是增強後的圖片像素值， $\gamma$ 是一個參數，用於控制曲線的形狀。
+        - 而公式中的 $I$ 是原始圖片的像素值， $O$是增強後的圖片像素值， $\gamma$ 是一個參數，用於控制曲線的形狀。
     - 以下是實作結果
                 
     - 結果討論
