@@ -4,7 +4,7 @@
   - 其中 $f(x)$ 是原始圖片的像素值， $g(x)$ 是變換後的圖片像素值， $\alpha$ 和 $\beta$ 是線性變換的參數。 $\alpha$ 是代表對像素值進行縮放的比例因子， $\beta$ 是代表對像素值進行平移的量。
   - 當 $\alpha<1$ 時，圖片的對比度會降低，當 $\alpha>1$ 時，圖片的對比度會增加
   - 當 $\beta<0$ 時，圖片會變暗，當 $\beta>0$ 時，圖片會變亮。
-  - 我設計了一個為 ` convert_scale_abs(img, alpha, beta) ` 的函式，這個函式接受三個參數：`img`是待處理的圖片， `alpha` 是線性變換的斜率， `beta` 是線性變換的截距。
+  - 我設計了一個為`convert_scale_abs(img, alpha, beta)`的函式，這個函式接受三個參數：`img`是待處理的圖片，`alpha`是線性變換的斜率，`beta`是線性變換的截距。
   - 以下是實作結果
   - 結果討論
     - Original Image
