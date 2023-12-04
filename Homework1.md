@@ -1,6 +1,6 @@
-## Q1：Please prepare four images: (a) dark; (b) bright; (c) low contrast; (d) high contrast, like the following images. The examples are shown as follows.<br>
+## Q1：Please prepare four images: (a) dark; (b) bright; (c) low contrast; (d) high contrast, like the following images. The examples are shown as follows.
 * (a) Describe how you generate your four images. Show the images together with the corresponding histograms.<br>
-        - 像素值的線性變換公式：$g(x)=\alpha f(x)+\beta$
+        - 像素值的線性變換公式：$g(x)=\alpha f(x)+\beta$  
             - 其中 $f(x)$ 是原始圖片的像素值， $g(x)$ 是變換後的圖片像素值， $\alpha$和 $\beta$是線性變換的參數。 $\alpha$是代表對像素值進行縮放的比例因子， $\beta$ 是代表對像素值進行平移的量。
             - 當 $\alpha<1$時，圖片的對比度會降低，當 $\alpha>1$時，圖片的對比度會增加
             - 當$\beta<0$時，圖片會變暗，當$\beta>0$時，圖片會變亮。
